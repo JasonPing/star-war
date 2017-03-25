@@ -1,0 +1,46 @@
+<!-- <h1> this is the template for EJS</h1>
+<p> <%= title %></p>
+
+<ul>
+    <% for(var i = 0;i<movies.length;i++){ %>
+      <li> <%= movies[i] %></li>
+    <% } %>
+</ul> -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include partials/head.ejs%>
+
+
+  </head>
+  <body>
+    <% include partials/header.ejs%>
+
+    <div id="hero-image">
+      <h1 id="hero-title"><%= title %></h1>
+    </div>
+    <div id = "posters-wrapper" class="content-padding cleafix">
+      <% for (var i = 0;i< movies.length;i++) {%>
+        <div class="poster">
+          <a href ="/star_wars_episode/<%= movies[i].episode_number %>">
+
+        <img src="/images/<%= movies[i].poster %>" class="img-responsive">
+        <div class="poster-info-overlay">
+					<h3><%= movies[i].title %></h3>
+					<h4>View More <i class="fa fa-arrow-right"></i></h4>
+				</div>
+
+      </a>
+      </div>
+      <% } %>
+
+    </div>
+
+    <!-- <% for (var i = 0;i<movies.length;i++) {%>
+      <img src="/images/<%= movies[i].poster %>" class="img-responsive">
+    <% } %> -->
+
+    <% include partials/footer.ejs %>
+    <% include partials/script.ejs %>
+  </body>
+</html>
